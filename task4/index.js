@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-expressions */
 export const getTitle = () => {
-  const elemTitle = document.querySelector(".title");
-  elemTitle.textContent;
+  const elemTitle = document.querySelector(".title").textContent;
 };
 export const getDescription = () => {
   const aboutElem = document.querySelector(".about");
