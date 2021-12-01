@@ -55,9 +55,9 @@ const onSeatSelect = (event) => {
     return;
   }
 
-  const seatNumber = event.target.dataset.seatNumber;
-  const lineNumber = event.target.closest(".sector__line").dataset.lineNumber;
-  const sectorNumber = event.target.closest(".sector").dataset.sectorNumber;
+  const { seatNumber } = event.target.dataset;
+  const { lineNumber } = event.target.closest(".sector__line").dataset;
+  const { sectorNumber } = event.target.closest(".sector").dataset;
 
   const selectedSeatElem = document.querySelector(".board__selected-seat");
 
