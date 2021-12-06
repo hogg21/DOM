@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const onStorageChange = (e) => {
-  if (e.key !== "tasksList") {
+  if (localStorage.key !== "tasksList") {
     return null;
   }
   return renderTasks();
