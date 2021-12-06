@@ -6,7 +6,7 @@ export const onToggleTask = (e) => {
   const isCheckbox = e.target.classList.contains("list__item-checkbox");
 
   if (!isCheckbox) {
-    return null;
+    return;
   }
 
   const tasksList = getItem("tasksList");
