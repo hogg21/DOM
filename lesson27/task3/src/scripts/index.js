@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
   initTodoListHandlers();
 });
 
-const onStorageChange = (e) => {
-  if (localStorage.key !== "tasksList") {
+function onStorageChange(e) {
+  if (e.key !== "tasksList") {
     return null;
   }
-  return renderTasks();
-};
+  renderTasks();
+}
 
 window.addEventListener("storage", onStorageChange);
