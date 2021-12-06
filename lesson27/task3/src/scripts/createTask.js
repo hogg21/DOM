@@ -1,6 +1,7 @@
 import { renderTasks } from "./renderer.js";
 import { getItem, setItem } from "./storage.js";
 
+// eslint-disable-next-line consistent-return
 export const onCreateTask = () => {
   const taskTitleInputElem = document.querySelector(".task-input");
 
