@@ -8,7 +8,7 @@ export const onCreateTask = () => {
   const text = taskTitleInputElem.value;
 
   if (!text) {
-    return;
+    return null;
   }
 
   taskTitleInputElem.value = "";
