@@ -1,7 +1,6 @@
-import { fetchUserData, fetchRepositories } from "./gateways.js";
-import { renderUserData } from "./user.js";
-import { renderRepos, clearList } from "./reposithory.js";
+import { renderUserData, renderRepos, clearList } from "./render.js";
 import { showSpinner, hideSpinner } from "./spinner.js";
+import { fetchUserData, fetchRepositories } from "./apiRequest.js";
 
 const defaultUserAvatar = "https://avatars3.githubusercontent.com/u10001";
 const defaultUser = {
@@ -9,31 +8,30 @@ const defaultUser = {
   name: "",
   location: "",
 };
-renderUserData(defaultUser);
-
+const userNameInput = document.querySelector(".name-form__input");
 const showUserBtnElem = document.querySelector(".name-form__btn");
-const userNameInputElem = document.querySelector(".name-form__input");
+
+renderUserData(defaultUser);
 
 const onSearchUser = () => {
   showSpinner();
-  clearList();
-  const userName = userNameInputElem.value;
+  const userName = userNameInput.value;
   fetchUserData(userName)
     .then((userData) => {
       renderUserData(userData);
       return userData.repos_url;
     })
     .then((url) => fetchRepositories(url))
-    .then((repoList) => {
-      renderRepos(repoList);
+    .then((reposList) => {
+      renderRepos(reposList);
       hideSpinner();
     })
     .catch((err) => {
-      hideSpinner();
       alert(err.message);
     })
     .finally(() => {
       hideSpinner();
     });
 };
+
 showUserBtnElem.addEventListener("click", onSearchUser);
