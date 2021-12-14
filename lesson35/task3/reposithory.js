@@ -14,13 +14,12 @@ export const clearList = () => {
   listElem.innerHTML = "";
 };
 
-export const renderRepos = (reposList) => {
-  clearList();
-  const repoListElem = reposList.map(({ name }) => {
+export const renderRepos = (repoList) => {
+  listElem.innerHTML = "";
+  const repoListElem = repoList.map(({ name }) => {
     const listItemElem = document.createElement("li");
     listItemElem.classList.add("repo-list__item");
     listItemElem.textContent = name;
-
     return listItemElem;
   });
   listElem.append(...repoListElem);

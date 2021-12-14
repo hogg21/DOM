@@ -3,8 +3,9 @@ import { renderUserData } from "./user.js";
 import { renderRepos, clearList } from "./reposithory.js";
 import { showSpinner, hideSpinner } from "./spinner.js";
 
+const defaultUserAvatar = "https://avatars3.githubusercontent.com/u10001";
 const defaultUser = {
-  avatar_url: "https://avatars.githubusercontent.com/u1001",
+  avatar_url: defaultUserAvatar,
   name: "",
   location: "",
 };
@@ -23,8 +24,8 @@ const onSearchUser = () => {
       return userData.repos_url;
     })
     .then((url) => fetchRepositories(url))
-    .then((reposList) => {
-      renderRepos(reposList);
+    .then((repoList) => {
+      renderRepos(repoList);
       hideSpinner();
     })
     .catch((err) => {
