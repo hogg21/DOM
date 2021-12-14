@@ -14,9 +14,9 @@ export const clearList = () => {
   listElem.innerHTML = "";
 };
 
-export const renderRepos = (repoList) => {
+export const renderRepos = (reposList) => {
   clearList();
-  const repoListElem = repoList.map(({ name }) => {
+  const repoListElem = reposList.map(({ name }) => {
     const listItemElem = document.createElement("li");
     listItemElem.classList.add("repo-list__item");
     listItemElem.textContent = name;

@@ -4,8 +4,7 @@ import { renderRepos, clearList } from "./reposithory.js";
 import { showSpinner, hideSpinner } from "./spinner.js";
 
 const defaultUser = {
-  avatar_url:
-    "https://www.primecrime.ru/cache/107-140-100/public/upload/char_images/b37b2db2221e60bd9ca714ac5d7f6c70_1520486879.jpg",
+  avatar_url: "https://avatars.githubusercontent.com/u1001",
   name: "",
   location: "",
 };
@@ -26,8 +25,10 @@ const onSearchUser = () => {
     .then((url) => fetchRepositories(url))
     .then((reposList) => {
       renderRepos(reposList);
+      hideSpinner();
     })
     .catch((err) => {
+      hideSpinner();
       alert(err.message);
     })
     .finally(() => {
